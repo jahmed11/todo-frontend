@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# Todo Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is a frontend application for a Todo application built using React, TypeScript, and Vite. 
+The application interacts with a backend API to perform CRUD (Create, Read, Update, Delete) operations on todo items. 
+It features a responsive user interface and uses modern development tools for a fast and efficient development experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **CRUD Operations:** Create, read, update, and delete todo items.
+- **React & TypeScript:** Utilizes React for UI components and TypeScript for type safety.
+- **Vite:** Provides fast build times and development server for a smooth development experience.
+- **Ant Design:** UI components library for a polished and responsive interface.
+- **Axios:** For making API requests to the backend.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+- **Node.js:** >=18.x
+- **npm** or **yarn**: Package managers to install dependencies
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Installation
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. **Clone the Repository**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   git clone https://github.com/yourusername/todo-frontend.git
+   cd todo-frontend
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. Install Dependencies
+   ```bash
+   npm install
+
+3. Start in Development mode
+   ```bash
+   npm run dev
