@@ -2,7 +2,7 @@ import axios, { AxiosResponse, AxiosError } from "axios";
 import { message } from "antd";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api", // Replace with your base API URL
+  baseURL: import.meta.env.VITE_API_BASE_URL, // Replace with your base API URL
   timeout: 9000,
   headers: { "Content-Type": "application/json" },
 });
