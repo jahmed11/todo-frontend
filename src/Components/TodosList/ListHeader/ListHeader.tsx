@@ -6,7 +6,7 @@ import styles from "./listHeader.module.css";
 const ListHeader: FC<IListHeaderProps> = ({ onAddClick }) => {
   return (
     <div className={styles["header-container"]}>
-      <h3>Todo List</h3>
+      <h2 className={styles["header"]}>Todo List</h2>
       <Button shape="round" onClick={onAddClick}>
         Add
       </Button>

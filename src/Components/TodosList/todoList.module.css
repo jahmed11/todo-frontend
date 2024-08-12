@@ -1,3 +1,11 @@
 .todoList-container {
   width: 800px;
+  margin: auto;
+  padding-top: 6rem;
+}
+
+.todoList-container :global(.ant-list-items) {
+  height: 400px;
+  overflow-y: auto;
+  padding-right: 1rem;
 }

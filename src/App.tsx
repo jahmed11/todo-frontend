@@ -1,7 +1,8 @@
+import React from "react";
 import TodosList from "./Components/TodosList/TodosList";
 
-function App() {
+const App: React.FC = () => {
   return <TodosList />;
-}
+};
 
 export default App;

@@ -4,3 +4,7 @@
   flex-direction: row;
   align-items: center;
 }
+
+.header {
+  margin: 0;
+}

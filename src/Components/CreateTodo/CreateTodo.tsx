@@ -1,8 +1,14 @@
 import { FC, useState, useEffect } from "react";
-import { Modal, Form } from "antd";
+import { Modal, Form, message } from "antd";
 import { IAddTodoProps, IFormValues } from "../../types/todo";
 import { createTodo, updateTodo } from "../../api/todoServices";
-import AddTodoForm from "./CreateTodoForm";
+import AddTodoForm from "./CreateTodoForm/CreateTodoForm";
+import { todoActions } from "../../utils/message";
+
+/**
+ * AddTodo component: Handles both adding a new todo item and updating an existing one.
+ * This component is rendered as a modal with a form for input.
+ */
 
 const AddTodo: FC<IAddTodoProps> = ({
   openAddTodo,
@@ -22,6 +28,12 @@ const AddTodo: FC<IAddTodoProps> = ({
     }
   }, [todoItem]);
 
+  /**
+   * onFinish: Handles the form submission logic.
+   * - If updating, calls the updateTodo API and updates the todo in the list.
+   * - If creating, calls the createTodo API and adds the new todo to the list.
+   */
+
   const onFinish = async (values: IFormValues) => {
     let apiService = null;
 
@@ -31,17 +43,19 @@ const AddTodo: FC<IAddTodoProps> = ({
       apiService = (formValue: IFormValues) => createTodo({ ...formValue, completed: false });
     }
 
-    console.log(values);
     setIsLoading(true);
     try {
       const response = await apiService(values);
+      let messageStr = null;
 
       if (isUpdate && todoItem) {
         updateById(todoItem.id, "title", values.title);
+        messageStr = todoActions.updateTitle;
       } else {
         addTodo(response.data);
+        messageStr = todoActions.createTodo;
       }
-
+      message.success(messageStr);
       onCancel();
     } catch (err) {
       console.log(err);
